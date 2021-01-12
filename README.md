@@ -25,3 +25,12 @@ Included the configurations in 'dwh.cfg' file.
 - insert data into dimension table using staging tables.
 - insert data into fact table using staging and dimension tables.
  
+check data sanity:
+- select count(*),song_id from song group by song_id having count(*) >1;
+- select count(1),artist_id from artist group by artist_id having count(*) >1;
+- select count(1),start_time from time group by start_time having count(*) >1;
+- select count(1),user_id from users group by user_id having count(*) >1;
+- select count(1),user_id from users group by user_id having count(*) >1;  
+- select count(1),start_time,  user_id  , level , song_id , artist_id  ,session_id  , 
+location , user_agent from songplay group by start_time,  user_id  , level , song_id , 
+artist_id  ,session_id  , location , user_agent  having count(*) >1 ;
